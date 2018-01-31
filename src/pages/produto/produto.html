@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Produto</ion-title>
+
+    <ion-buttons end>
+      <button icon-only=""  ion-button="" (click)="goToForm()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item *ngFor= 'let produto of produtos'>
+
+          <h2>{{produto.id}} - {{produto.nome}}</h2>
+          <ion-note item-right>{{produto.tipo}}</ion-note>
+
+        </ion-item>
+    </ion-list>
+
+</ion-content>
