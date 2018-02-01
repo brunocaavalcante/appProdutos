@@ -2,6 +2,7 @@ import { ProdutoformPage } from './../produtoform/produtoform';
 import { ProdutoService } from './produto.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 
 /**
  * Generated class for the ProdutoPage page.
@@ -21,7 +22,8 @@ export class ProdutoPage {
 
   constructor(
     public navCtrl: NavController,
-    public produtoService: ProdutoService, 
+    public produtoService: ProdutoService,
+    public alertCtrl: AlertController, 
     public navParams: NavParams) {
 
    
@@ -30,9 +32,20 @@ export class ProdutoPage {
   goToForm(){
     this.navCtrl.push(ProdutoformPage);
   }
+  goToEdit(produto){
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProdutoPage');
+    this.navCtrl.push(ProdutoformPage, {produto: produto });
+
+  }
+
+  deleteProduto(produto){
+
+    alert
+
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter');
 
     this.produtoService.list().subscribe( dados =>{
       this.produtos = dados;

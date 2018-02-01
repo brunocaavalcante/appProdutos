@@ -21,8 +21,13 @@ export class ProdutoService{
 
     save(obj){
 
-        this.http.post(this.url, obj).map(res => res.json());
+       return this.http.post(this.url, obj).map(res => res.json());
 
     }
+    update(obj){
+
+       return this.http.put(this.url+'/'+ obj.id, obj).map(res => res.json());
+    }
+    
 
 }

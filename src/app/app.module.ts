@@ -16,14 +16,14 @@ import { HttpModule } from '@angular/http';
   declarations: [
     MyApp,
     HomePage,
-    ProdutoPage,
-    ProdutoformPage
-  ],
+    ProdutoformPage,
+    ProdutoPage
+    ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule
-  ],
+    ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,

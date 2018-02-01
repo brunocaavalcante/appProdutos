@@ -18,12 +18,17 @@
 <ion-content padding>
 
     <ion-list>
-        <ion-item *ngFor= 'let produto of produtos'>
+
+        <button ion-item *ngFor= 'let produto of produtos' (click)="goToEdit(produto)">
+
+          <button item-left clear ion-button="" icon-only="" (click)="deleteProduto(produto)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
 
           <h2>{{produto.id}} - {{produto.nome}}</h2>
           <ion-note item-right>{{produto.tipo}}</ion-note>
 
-        </ion-item>
+        </button>
     </ion-list>
 
 </ion-content>
