@@ -4,12 +4,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 
-/**
- * Generated class for the ProdutoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -29,6 +23,14 @@ export class ProdutoPage {
    
   }
 
+  list(){
+
+    this.produtoService.list().subscribe( dados =>{
+      this.produtos = dados;
+    } 
+    )
+  }
+
   goToForm(){
     this.navCtrl.push(ProdutoformPage);
   }
@@ -38,19 +40,52 @@ export class ProdutoPage {
 
   }
 
-  deleteProduto(produto){
+  deleteProduto(produto, $event){
 
-    alert
+    $event.preventDefault(),
+    event.stopImmediatePropagation(), 
+    $event.stopPropagation();
+
+    let prompt = this.alertCtrl.create({
+
+      title: 'Delete',
+      message: 'Deseja excluir este item?',
+
+      buttons:[
+          {
+            text: 'Cancelar',
+            handler: data=>{
+
+              console.log("Cancelar");
+            }
+          },
+          {
+            text: 'OK',
+            handler: data=>{
+
+              console.log("Deletar");
+
+              this.produtoService.delete(produto).subscribe( dados =>{
+
+                    this.list();
+              } 
+              )
+
+            }
+          }
+
+      ]
+
+    });
+    prompt.present();
 
   }
 
   ionViewWillEnter() {
+    
     console.log('ionViewWillEnter');
 
-    this.produtoService.list().subscribe( dados =>{
-      this.produtos = dados;
-    } 
-    )
+    this.list();
   }
 
 }

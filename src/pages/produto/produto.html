@@ -21,7 +21,7 @@
 
         <button ion-item *ngFor= 'let produto of produtos' (click)="goToEdit(produto)">
 
-          <button item-left clear ion-button="" icon-only="" (click)="deleteProduto(produto)">
+          <button item-left clear ion-button="" icon-only="" (click)="deleteProduto(produto,$event)">
             <ion-icon name="trash"></ion-icon>
           </button>
 

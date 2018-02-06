@@ -13,13 +13,15 @@ export class ProdutoformPage {
 
   produto : any;
 
+
   constructor(
     public navCtrl: NavController,
     public produtoService: ProdutoService,
     public toastCrtl: ToastController, 
     public navParams: NavParams) {
 
-    this.produto = ({id:'',nome:'',tipo:''});
+    this.produto = ({ id:'', nome:'', tipo:''});
+
 
     let produtoParam = this.navParams.get("produto");
     console.log(produtoParam);

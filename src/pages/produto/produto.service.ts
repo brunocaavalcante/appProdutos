@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 
 export class ProdutoService{
 
-    url = "http://localhost:3000/produtos";
+    url = "http://localhost:3000/produto";
 
     constructor(private http: Http){
 
@@ -26,8 +26,11 @@ export class ProdutoService{
     }
     update(obj){
 
-       return this.http.put(this.url+'/'+ obj.id, obj).map(res => res.json());
+       return this.http.put(this.url+ '/' + obj.id, obj).map(res => res.json());
     }
-    
+    delete(obj){
+
+        return this.http.delete( this.url + "/" + obj.id, obj).map(res=>res.json());
+    }
 
 }
